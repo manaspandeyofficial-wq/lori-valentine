@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lori 🦋 Will You Be My Valentine?</title>
+<style>
+body{margin:0;height:100vh;font-family:Segoe UI,sans-serif;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#ffafbd,#ffc3a0);overflow:hidden}
+.card{background:white;padding:25px 22px 40px;border-radius:20px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.25);max-width:330px;width:92%}
+.photo{width:120px;height:120px;object-fit:cover;border-radius:50%;margin-bottom:15px;border:4px solid #ff4d6d;box-shadow:0 8px 20px rgba(255,77,109,.4)}
+button{padding:12px 26px;font-size:1rem;border:none;border-radius:30px;cursor:pointer}
+#yesBtn{background:#ff4d6d;color:#fff;margin-right:10px}
+#noBtn{background:#ddd;position:absolute}
+.heart{position:fixed;bottom:-20px;font-size:22px;animation:floatUp 4s linear forwards}
+@keyframes floatUp{to{transform:translateY(-100vh) scale(1.6);opacity:0}}
+.love-msg{font-size:1.15rem;color:#ff4d6d;margin-top:15px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="card">
+<img src="lori.jpg" class="photo">
+<h1>Lori 🦋</h1>
+<p>Will you be my Valentine? 💘</p>
+<button id="yesBtn">Yes 💖</button>
+<button id="noBtn">No 🙈</button>
+<div id="message"></div>
+</div>
+<script>
+const noBtn=document.getElementById("noBtn"),yesBtn=document.getElementById("yesBtn"),msg=document.getElementById("message");
+noBtn.style.left="55%";noBtn.style.top="68%";
+function move(){noBtn.style.left=Math.random()*(innerWidth-100)+"px";noBtn.style.top=Math.random()*(innerHeight-60)+"px"}
+noBtn.onmouseover=move;noBtn.onclick=move;
+yesBtn.onclick=()=>{msg.innerHTML='<div class="love-msg">Yayyy 💞 I knew it!</div>';for(let i=0;i<25;i++)setTimeout(()=>{let h=document.createElement("div");h.className="heart";h.innerText="💖";h.style.left=Math.random()*100+"vw";document.body.appendChild(h);setTimeout(()=>h.remove(),4e3)},i*120)}
+</script>
+</body>
+</html>
